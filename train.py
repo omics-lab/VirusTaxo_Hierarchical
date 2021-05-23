@@ -10,19 +10,6 @@ import sys
 from tqdm import tqdm
 
 
-class Trie:
-    def __init__(self):
-        self.root = {}
-
-    def insert(self, kmer):
-        current_dict = self.root
-        for bp in kmer:
-            current_dict = current_dict.setdefault(bp, {})
-
-    def search(self):
-        pass
-
-
 class NewAlgo:
 
     def __init__(self, filename, set_of_nodes, level):
@@ -48,11 +35,7 @@ class NewAlgo:
 
         for key, val in tqdm(mp.items()):
             matrix = [(ckey, cval) for ckey, cval in Counter(val).items()]
-            trie_obj = Trie()
-            for mkey, mval in matrix:
-                if mval >= hparams['n']:
-                    trie_obj.insert(mkey)
-            model[key] = trie_obj
+            model[key] = {mkey for mkey, mval in matrix if mval >= hparams['n']}
 
         save_object(model, os.path.join(model_dir, self.filename))
 

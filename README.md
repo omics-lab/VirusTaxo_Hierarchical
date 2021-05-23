@@ -5,7 +5,7 @@
 ### Installation
 
 ```
-git clone https://github.com/Rajan-sust/virusclf
+git clone https://github.com/omics-lab/VirusTaxo
 cd virusclf
 python3 -m venv environment
 source ./environment/bin/activate

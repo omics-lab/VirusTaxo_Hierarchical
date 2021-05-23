@@ -6,7 +6,7 @@
 
 ```
 git clone https://github.com/omics-lab/VirusTaxo
-cd virusclf
+cd VirusTaxo
 python3 -m venv environment
 source ./environment/bin/activate
 pip install -r requirements.txt

@@ -22,7 +22,7 @@ class NewAlgo:
         x_y_tuples = [(row['Assembly'], row[num_to_taxon[self.level]]) for idx, row in df.iterrows()
                       if row[num_to_taxon[self.level]] in self.set_of_nodes]
 
-        print(f'training... samples = {len(x_y_tuples)}; classifier = {num_to_taxon[self.level]}; Parent name = {self.filename}')
+        # print(f'training... samples = {len(x_y_tuples)}; classifier = {num_to_taxon[self.level]}; Parent name = {self.filename}')
 
         mp = defaultdict(list)
 
@@ -37,7 +37,15 @@ class NewAlgo:
             matrix = [(ckey, cval) for ckey, cval in Counter(val).items()]
             model[key] = {mkey for mkey, mval in matrix if mval >= hparams['n']}
 
-        save_object(model, os.path.join(model_dir, self.filename))
+        discriminative_bags = defaultdict(set)
+        set_of_unique_keys = set(model.keys())
+        for key, val in tqdm(model.items()):
+            other_sets = set_of_unique_keys - {key}
+            for v in val:
+                if all(v not in model[other_set] for other_set in other_sets):
+                    discriminative_bags[key].add(v)
+
+        save_object(discriminative_bags, os.path.join(model_dir, self.filename))
 
 
 def build_tree(train_metadata_path):

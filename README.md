@@ -30,8 +30,32 @@ dataset/
     └── train.csv
 ```
 
+### Training with new dataset
+
+- `--data`: Absolute or full path of fasta sequences.
+
+- `--data_metainfo`: Absolute or full path of a csv file. The csv file carries meta information (filename and taxonomic ranks) about fasta sequences.
+Please see `./dataset/RNA/metadata.csv` as an example.
+
+- `--model_dir`: Absolute or full path where model will be saved. If the directory doesn't exist, it will be created. 
+
+```
+python3 train.py \
+  --data ./dataset/RNA/seq_data \
+  --data_metainfo ./dataset/RNA/metadata.csv \
+  --model_dir ./model/Custom/RNA
+```
 
 
+### Prediction using a new sequence
+
+- `--input`: Absolute or full path of a fasta sequence.
+- `--model_dir`: Absolute or full path of a pretrained model.
+
+```
+python3 predict.py --input ./dataset/RNA/test_sequence.fasta \
+  --model_dir ./model/Custom/RNA/
+```
 ### Train
 ```
 python3 train.py \

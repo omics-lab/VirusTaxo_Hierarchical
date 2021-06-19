@@ -138,6 +138,6 @@ python3 test.py \
 ```
 Rajan Saha Raju, Abdullah Al Nahid, Preonath Shuvo, Rashedul Islam. 
 VirusTaxo: Taxonomic classification of virus genome using multi-class hierarchical classification by k-mer enrichment.
-[bioRxiv (2021), DOI:10.1101/2021.04.29.442004.](https://www.biorxiv.org/content/10.1101/2021.04.29.442004v1)
+bioRxiv (2021), DOI:10.1101/2021.04.29.442004.
 ```
 

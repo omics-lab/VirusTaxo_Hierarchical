@@ -36,7 +36,7 @@ dataset/
 
 ### Train VirusTaxo models
 
-- `--data`: Absolute or full path of fasta sequences used in VirusTaxo. NOTE: You use your own sequences.
+- `--data`: Absolute or full path of fasta sequences used in VirusTaxo. NOTE: You can use your own sequences.
 
 - `--data_metainfo`: Absolute or full path of a csv file. The csv file carries meta information (filename and taxonomic ranks) about fasta sequences.
 Please see `./dataset/RNA/metadata.csv` as an example. NOTE: If you use your own sequences, please create the corresponding metadata file.
@@ -137,7 +137,7 @@ python3 test.py \
 
 ```
 Rajan Saha Raju, Abdullah Al Nahid, Preonath Shuvo, Rashedul Islam. 
-[VirusTaxo: Taxonomic classification of virus genome using multi-class hierarchical classification by k-mer enrichment.](https://www.biorxiv.org/content/10.1101/2021.04.29.442004v1)
-bioRxiv (2021), DOI:10.1101/2021.04.29.442004.
+VirusTaxo: Taxonomic classification of virus genome using multi-class hierarchical classification by k-mer enrichment.
+[bioRxiv (2021), DOI:10.1101/2021.04.29.442004.](https://www.biorxiv.org/content/10.1101/2021.04.29.442004v1)
 ```
 

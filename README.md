@@ -35,7 +35,7 @@ dataset/
 - `--data`: Absolute or full path of fasta sequences.
 
 - `--data_metainfo`: Absolute or full path of a csv file. The csv file carries meta information (filename and taxonomic ranks) about fasta sequences.
-Please see `./dataset/RNA/metadata.csv` as an example.
+Please see `./dataset/RNA/metadata.csv` as an example. Assembly,Order,Family,Genus,Species
 
 - `--model_dir`: Absolute or full path where model will be saved. If the directory doesn't exist, it will be created. 
 

@@ -19,7 +19,7 @@ class NewAlgo:
 
     def fit(self, samples_path, train_metadata_path, model_dir):
         df = pd.read_csv(train_metadata_path)
-        x_y_tuples = [(row['Assembly'], row[num_to_taxon[self.level]]) for idx, row in df.iterrows()
+        x_y_tuples = [(row['Filename'], row[num_to_taxon[self.level]]) for idx, row in df.iterrows()
                       if row[num_to_taxon[self.level]] in self.set_of_nodes]
 
         # print(f'training... samples = {len(x_y_tuples)}; classifier = {num_to_taxon[self.level]}; Parent name = {self.filename}')
@@ -49,7 +49,7 @@ class NewAlgo:
 
 
 def build_tree(train_metadata_path):
-    df = pd.read_csv(train_metadata_path)
+    df = pd.read_csv(train_metadata_path, names=['Filename', 'Order', 'Family', 'Genus', 'Species'])
     adjacency_list = defaultdict(set)
 
     for _, row in df.iterrows():
@@ -100,10 +100,10 @@ if __name__ == '__main__':
 
     if not os.path.isdir(samples_path_):
         print('Sequence data do not exist in the specified path...')
-        sys.exit(0)
+        sys.exit(1)
 
     if not os.path.isfile(train_metadata_path_):
         print('Training metadata do not exist in the specified path...')
-        sys.exit(0)
+        sys.exit(1)
 
     main(samples_path_, train_metadata_path_, model_dir_)

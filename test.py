@@ -41,20 +41,20 @@ def predict(file_path, model_path):
 def batch_predict(test_metadata_path, test_samples_path, model_path, prediction_dir):
     if not os.path.isfile(test_metadata_path):
         print('test metadata do not exist in the specified path...', flush=True)
-        sys.exit(0)
+        sys.exit(1)
 
     if not os.path.isdir(test_samples_path):
         print('test samples do not exist in the specified path...', flush=True)
-        sys.exit(0)
+        sys.exit(1)
 
     if not os.path.isdir(model_path):
         print('models do not exist in the specified path...', flush=True)
-        sys.exit(0)
+        sys.exit(1)
 
-    df = pd.read_csv(test_metadata_path)
+    df = pd.read_csv(test_metadata_path, names = ['Filename', 'Order', 'Family', 'Genus', 'Species'])
     responses = []
     for _, row in tqdm(df.iterrows()):
-        res = predict(os.path.join(test_samples_path, row['Assembly']), model_path)
+        res = predict(os.path.join(test_samples_path, row['Filename']), model_path)
         responses.append(list(row) + [res['Order'], res['Family'], res['Genus']])
 
     # print(responses)

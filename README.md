@@ -83,13 +83,13 @@ We randomly selected one species genome from each genus for testing the DNA and 
 python3 train.py \
   --data ./dataset/DNA/seq_data \
   --data_metainfo ./dataset/DNA/train.csv \
-  --model_dir ./model/Custom/DNA
+  --model_dir ./model/DNA
 
 # Train RNA model
 python3 train.py \
   --data ./dataset/RNA/seq_data \
   --data_metainfo ./dataset/RNA/train.csv \
-  --model_dir ./model/Custom/RNA
+  --model_dir ./model/RNA
 
 ```
 
@@ -102,13 +102,13 @@ python3 train.py \
 python3 test.py \
   --type single \
   --input ./dataset/DNA/test_sequence.fasta \
-  --model_dir ./model/Custom/DNA
+  --model_dir ./model/DNA
 
 # Test RNA model
 python3 test.py \
   --type single \
   --input ./dataset/RNA/test_sequence.fasta \
-  --model_dir ./model/Custom/RNA
+  --model_dir ./model/RNA
 
 ```
 

@@ -18,7 +18,7 @@ class NewAlgo:
         self.level = level
 
     def fit(self, samples_path, train_metadata_path, model_dir):
-        df = pd.read_csv(train_metadata_path)
+        df = pd.read_csv(train_metadata_path, names = ['Filename', 'Order', 'Family', 'Genus', 'Species'])
         x_y_tuples = [(row['Filename'], row[num_to_taxon[self.level]]) for idx, row in df.iterrows()
                       if row[num_to_taxon[self.level]] in self.set_of_nodes]
 
@@ -49,7 +49,7 @@ class NewAlgo:
 
 
 def build_tree(train_metadata_path):
-    df = pd.read_csv(train_metadata_path, names=['Filename', 'Order', 'Family', 'Genus', 'Species'])
+    df = pd.read_csv(train_metadata_path, names = ['Filename', 'Order', 'Family', 'Genus', 'Species'])
     adjacency_list = defaultdict(set)
 
     for _, row in df.iterrows():

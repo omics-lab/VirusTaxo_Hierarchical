@@ -120,7 +120,7 @@ python3 test.py \
   --type batch \
   --data ./dataset/DNA/seq_data \
   --data_metainfo ./dataset/DNA/test.csv \
-  --model_dir ./model/Custom/DNA \
+  --model_dir ./model/DNA \
   --output ./predict/DNA
 
 # Test RNA model
@@ -128,7 +128,7 @@ python3 test.py \
   --type batch \
   --data ./dataset/RNA/seq_data \
   --data_metainfo ./dataset/RNA/test.csv \
-  --model_dir ./model/Custom/RNA \
+  --model_dir ./model/RNA \
   --output ./predict/RNA
 
 ```

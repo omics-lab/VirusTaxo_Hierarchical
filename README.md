@@ -39,7 +39,9 @@ dataset/
 - `--data`: Absolute or full path of fasta sequences used in VirusTaxo. NOTE: You can use your own sequences.
 
 - `--data_metainfo`: Absolute or full path of a csv file. The csv file carries meta information (filename and taxonomic ranks) about fasta sequences.
-Please see `./dataset/RNA/metadata.csv` as an example. NOTE: If you use your own sequences, please create the corresponding metadata file.
+Please see `./dataset/RNA/metadata.csv` as an example.
+  
+1st, 2nd, 3rd, 4th and 5th columns in metadata denote Filename, Order, Family, Genus, Species respectively. NOTE: If you use your own sequences, please create the corresponding metadata file.
 
 - `--model_dir`: Absolute or full path where model will be saved. If the directory doesn't exist, it will be created. 
 
@@ -48,13 +50,13 @@ Please see `./dataset/RNA/metadata.csv` as an example. NOTE: If you use your own
 python3 train.py \
   --data ./dataset/DNA/seq_data \
   --data_metainfo ./dataset/DNA/metadata.csv \
-  --model_dir ./model/Custom/DNA
+  --model_dir ./model/DNA
 
 # Train RNA model
 python3 train.py \
   --data ./dataset/RNA/seq_data \
   --data_metainfo ./dataset/RNA/metadata.csv \
-  --model_dir ./model/Custom/RNA
+  --model_dir ./model/RNA
 
 ```
 

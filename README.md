@@ -43,14 +43,16 @@ Please see `./dataset/RNA/metadata.csv` as an example. 1st, 2nd, 3rd, 4th and 5t
 
 - `--model_dir`: Absolute or full path where model will be saved. If the directory doesn't exist, it will be created. 
 
+- Please specify k-mer lengh in the `config.py` file for train and test.
+
 ```
-# Train DNA model
+# Train DNA model. Please change the k-mer lengh to 21 in the `config.py` file.
 python3 train.py \
   --data ./dataset/DNA/seq_data \
   --data_metainfo ./dataset/DNA/metadata.csv \
   --model_dir ./model/DNA
 
-# Train RNA model
+# Train RNA model. Please change the k-mer lengh to 17 in the `config.py` file.
 python3 train.py \
   --data ./dataset/RNA/seq_data \
   --data_metainfo ./dataset/RNA/metadata.csv \
@@ -64,11 +66,11 @@ python3 train.py \
 - `--model_dir`: Absolute or full path of a pretrained model.
 
 ```
-# Predict taxonomy of DNA viruses
+# Predict taxonomy of DNA viruses. Please change the k-mer lengh to 21 in the `config.py` file.
 python3 predict.py --input ./dataset/DNA/test_sequence.fasta \
   --model_dir ./model/DNA/
 
-# Predict taxonomy of RNA viruses
+# Predict taxonomy of RNA viruses. Please change the k-mer lengh to 17 in the `config.py` file.
 python3 predict.py --input ./dataset/RNA/test_sequence.fasta \
   --model_dir ./model/RNA/
 ```
@@ -136,8 +138,6 @@ python3 test.py \
 ### Citation
 
 ```
-Rajan Saha Raju, Abdullah Al Nahid, Preonath Shuvo, Rashedul Islam. 
-VirusTaxo: Taxonomic classification of virus genome using multi-class hierarchical classification by k-mer enrichment.
-bioRxiv (2021), DOI:10.1101/2021.04.29.442004.
+Rajan Saha Raju, Abdullah Al Nahid, Preonath Chondrow Dev, Rashedul Islam. [VirusTaxo: Taxonomic classification of viruses from the genome sequence using k-mer enrichment](https://www.sciencedirect.com/science/article/pii/S0888754322001598). Genomics, Volume 114, Issue 4, July 2022.
 ```
 
